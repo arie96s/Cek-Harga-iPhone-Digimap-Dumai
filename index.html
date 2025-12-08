@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ePrice Digimap Dumai - Apple Devices</title>
+    <title>ePrice | Digimap Dumai</title>
     <style>
         /* --- CSS VARIABLES --- */
         :root {
@@ -12,7 +12,6 @@
             --card: #FFFFFF;
             --text-main: #1C1C1E;
             --text-sec: #8E8E93;
-            --danger: #FF3B30;
         }
 
         /* --- GLOBAL STYLES --- */
@@ -86,34 +85,6 @@
             color: #C7C7CC;
         }
 
-        /* --- CATEGORY TABS (New) --- */
-        .filter-tags {
-            display: flex;
-            gap: 10px;
-            overflow-x: auto;
-            padding-bottom: 10px;
-            margin-bottom: 10px;
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-        }
-        .filter-tags::-webkit-scrollbar { display: none; }
-
-        .tag {
-            background: #fff;
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            font-weight: 600;
-            white-space: nowrap;
-            color: var(--text-sec);
-            border: 1px solid rgba(0,0,0,0.05);
-            cursor: pointer;
-        }
-        .tag.active {
-            background: var(--text-main);
-            color: #fff;
-        }
-
         /* --- PRODUCT CARDS --- */
         .price-list {
             display: flex;
@@ -159,7 +130,7 @@
             border-radius: 6px;
             display: inline-block;
             font-weight: 500;
-            margin-top: 4px;
+            margin-top: 2px;
         }
 
         .price-col {
@@ -182,26 +153,18 @@
 
         .badge-new {
             font-size: 9px;
-            background-color: #007AFF;
+            background-color: #FF3B30;
             color: white;
             padding: 2px 6px;
             border-radius: 4px;
             margin-left: 6px;
             vertical-align: middle;
             font-weight: 700;
-            display: inline-block;
+            text-transform: uppercase;
         }
         
-        .badge-hot {
-            font-size: 9px;
-            background-color: var(--danger);
-            color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            margin-left: 6px;
-            vertical-align: middle;
-            font-weight: 700;
-            display: inline-block;
+        .badge-blue {
+            background-color: #007AFF;
         }
 
         /* --- STATES --- */
@@ -227,6 +190,7 @@
             display: block;
         }
 
+        /* --- DEVELOPER FOOTER --- */
         .developer-credit {
             text-align: right;
             font-size: 11px;
@@ -245,24 +209,16 @@
 <div class="container">
     <header>
         <h1>ePrice | Digimap Dumai</h1>
-        <p class="subtitle">Update: 8 Desember 2025</p>
+        <p class="subtitle">Price List Update: 8 Desember 2025</p>
     </header>
 
     <div class="search-container">
-        <input type="search" id="searchInput" class="search-box" placeholder="Cari iPhone, Mac, atau iPad..." autocomplete="off">
-    </div>
-
-    <div class="filter-tags">
-        <div class="tag" onclick="fillSearch('iPhone')">iPhone</div>
-        <div class="tag" onclick="fillSearch('iPad')">iPad</div>
-        <div class="tag" onclick="fillSearch('MacBook')">MacBook</div>
-        <div class="tag" onclick="fillSearch('Watch')">Watch</div>
-        <div class="tag" onclick="fillSearch('Mac Mini')">Mac Mini</div>
+        <input type="search" id="searchInput" class="search-box" placeholder="Cari produk (iPhone, Mac, iPad)..." autocomplete="off">
     </div>
 
     <div id="instructionState" class="state-message visible">
         <div style="font-size: 40px; opacity: 0.3; margin-bottom: 10px;"></div>
-        <p>Ketik tipe produk (misal: <strong>16 Pro, M4, iPad Air</strong>) untuk cek harga.</p>
+        <p>Ketik tipe produk (misal: <strong>16 Pro, M4, iPad Air</strong>) untuk melihat harga.</p>
     </div>
 
     <div id="iphoneList" class="price-list"></div>
@@ -276,90 +232,143 @@
 </div>
 
 <script>
-    // === DATABASE HARGA LENGKAP (8 DESEMBER 2025) ===
+    // === DATABASE HARGA (SESUAI PDF 8 DESEMBER 2025) ===
     const products = [
         // --- MACBOOK AIR ---
-        { name: "Macbook Air 13 M1", rom: "8/256GB", normal: 16699000, promo: 11299000 },
-        { name: "Macbook Air 13 M2", rom: "8C/8G/256GB", normal: 19999000, promo: 13299000 },
-        { name: "Macbook Air 13 M2", rom: "10C/8G/512GB", normal: 25499000, promo: 16799000 },
-        { name: "Macbook Air 13 M2", rom: "16G/256GB", normal: 16999000, promo: 13299000, tag: "NEW" },
+        { name: "Macbook Air 13 M1 (2020)", rom: "8/256GB", normal: 16699000, promo: 11299000 },
         
-        { name: "Macbook Air 13 M4", rom: "16GB/256GB", normal: 17999000, promo: 16799000, tag: "M4" },
-        { name: "Macbook Air 13 M4", rom: "16GB/512GB", normal: 21499000, promo: 20299000, tag: "M4" },
-        { name: "Macbook Air 13 M4", rom: "24GB/512GB", normal: 24999000, promo: 23799000, tag: "M4" },
+        { name: "Macbook Air 13 M2 (2022)", rom: "8/256GB", normal: 19999000, promo: 13299000 },
+        { name: "Macbook Air 13 M2 (2022)", rom: "8/512GB", normal: 25499000, promo: 16799000 },
+        { name: "Macbook Air 13 M2 (New)", rom: "16/256GB", normal: 16999000, promo: 13299000, tag: "NEW" },
 
-        { name: "Macbook Air 15 M4", rom: "16GB/256GB", normal: 21499000, promo: 20899000, tag: "M4" },
-        { name: "Macbook Air 15 M4", rom: "16GB/512GB", normal: 24999000, promo: 24399000, tag: "M4" },
-        { name: "Macbook Air 15 M4", rom: "24GB/512GB", normal: 28499000, promo: 27899000, tag: "M4" },
+        { name: "Macbook Air 13 M4", rom: "16/256GB", normal: 17999000, promo: 16799000, tag: "NEW" },
+        { name: "Macbook Air 13 M4", rom: "16/512GB", normal: 21499000, promo: 20299000, tag: "NEW" },
+        { name: "Macbook Air 13 M4", rom: "24/512GB", normal: 24999000, promo: 23799000, tag: "NEW" },
+
+        { name: "Macbook Air 15 M4", rom: "16/256GB", normal: 21499000, promo: 20899000, tag: "NEW" },
+        { name: "Macbook Air 15 M4", rom: "16/512GB", normal: 24999000, promo: 24399000, tag: "NEW" },
+        { name: "Macbook Air 15 M4", rom: "24/512GB", normal: 28499000, promo: 27899000, tag: "NEW" },
 
         // --- MACBOOK PRO ---
-        { name: "Macbook Pro 14 M4", rom: "16GB/512GB", normal: 27999000, promo: 25999000, tag: "M4" },
-        { name: "Macbook Pro 14 M4", rom: "16GB/1TB", normal: 31499000, promo: 28999000, tag: "M4" },
-        { name: "Macbook Pro 14 M4", rom: "24GB/1TB", normal: 34499000, promo: 31999000, tag: "M4" },
-        { name: "Macbook Pro 14 M4 Pro", rom: "24GB/512GB", normal: 34999000, promo: 34499000, tag: "PRO" },
-        { name: "Macbook Pro 14 M4 Pro", rom: "24GB/1TB", normal: 41999000, promo: 41499000, tag: "PRO" },
-        { name: "Macbook Pro 14 M4 Max", rom: "36GB/1TB", normal: 56499000, promo: 55999000, tag: "MAX" },
+        { name: "Macbook Pro 14 M4", rom: "16/512GB", normal: 27999000, promo: 25999000, tag: "NEW" },
+        { name: "Macbook Pro 14 M4", rom: "16GB/1TB", normal: 31499000, promo: 28999000, tag: "NEW" },
+        { name: "Macbook Pro 14 M4", rom: "24GB/1TB", normal: 34499000, promo: 31999000, tag: "NEW" },
+        { name: "Macbook Pro 14 M4 Pro", rom: "24/512GB", normal: 34999000, promo: 34499000, tag: "NEW" },
+        { name: "Macbook Pro 14 M4 Pro", rom: "24GB/1TB", normal: 41999000, promo: 41499000, tag: "NEW" },
+        { name: "Macbook Pro 14 M4 Max", rom: "36GB/1TB", normal: 56499000, promo: 55999000, tag: "NEW" },
 
-        { name: "Macbook Pro 16 M4 Pro", rom: "24GB/512GB", normal: 42999000, promo: 41999000, tag: "PRO" },
-        { name: "Macbook Pro 16 M4 Pro", rom: "48GB/512GB", normal: 49499000, promo: 48499000, tag: "PRO" },
-        { name: "Macbook Pro 16 M4 Max", rom: "36GB/1TB", normal: 59999000, promo: 58999000, tag: "MAX" },
-        { name: "Macbook Pro 16 M4 Max", rom: "48GB/1TB", normal: 68499000, promo: 67499000, tag: "MAX" },
+        { name: "Macbook Pro 16 M4 Pro", rom: "24/512GB", normal: 42999000, promo: 41999000, tag: "NEW" },
+        { name: "Macbook Pro 16 M4 Pro", rom: "48/512GB", normal: 49499000, promo: 48499000, tag: "NEW" },
+        { name: "Macbook Pro 16 M4 Max", rom: "36GB/1TB", normal: 59999000, promo: 58999000, tag: "NEW" },
+        { name: "Macbook Pro 16 M4 Max", rom: "48GB/1TB", normal: 68499000, promo: 67499000, tag: "NEW" },
 
-        // --- DESKTOP (MINI, IMAC, STUDIO) ---
-        { name: "Mac Mini M4", rom: "16GB/256GB", normal: 9999000, promo: 9999000, tag: "NEW" },
-        { name: "Mac Mini M4", rom: "16GB/512GB", normal: 13249000, promo: 13249000 },
-        { name: "Mac Mini M4", rom: "24GB/512GB", normal: 16499000, promo: 16499000 },
-        { name: "Mac Mini M4 Pro", rom: "24GB/512GB", normal: 23999000, promo: 23499000, tag: "PRO" },
+        // --- DESKTOP ---
+        { name: "Mac Mini M4", rom: "16/256GB", normal: 9999000, promo: 9999000, tag: "NEW" },
+        { name: "Mac Mini M4", rom: "16/512GB", normal: 13249000, promo: 13249000, tag: "NEW" },
+        { name: "Mac Mini M4", rom: "24/512GB", normal: 16499000, promo: 16499000, tag: "NEW" },
+        { name: "Mac Mini M4 Pro", rom: "24/512GB", normal: 23999000, promo: 23499000, tag: "NEW" },
 
-        { name: "iMac 24 M4", rom: "8C/16GB/256GB", normal: 21999000, promo: 21999000, tag: "M4" },
-        { name: "iMac 24 M4", rom: "10C/16GB/256GB", normal: 25249000, promo: 25249000, tag: "M4" },
-        { name: "iMac 24 M4", rom: "10C/16GB/256GB (NT)", normal: 28499000, promo: 28499000 },
-        { name: "iMac 24 M4", rom: "10C/24GB/512GB", normal: 31749000, promo: 31749000 },
+        { name: "iMac 24 M4 (8C/8C)", rom: "16/256GB", normal: 21999000, promo: 21999000, tag: "NEW" },
+        { name: "iMac 24 M4 (10C/10C)", rom: "16/256GB", normal: 25249000, promo: 25249000, tag: "NEW" },
+        { name: "iMac 24 M4 (10C/10C)", rom: "16/256GB NT", normal: 28499000, promo: 28499000, tag: "NEW" },
+        { name: "iMac 24 M4 (10C/10C)", rom: "24/512GB", normal: 31749000, promo: 31749000, tag: "NEW" },
 
-        { name: "Mac Studio M4", rom: "32C GPU/36G/512G", normal: 34999000, promo: 34999000, tag: "M4" },
-        { name: "Mac Studio M4", rom: "60C GPU/96G/1T", normal: 69999000, promo: 69999000, tag: "ULTRA" },
+        { name: "Mac Studio M4 Max", rom: "36/512GB", normal: 34999000, promo: 34999000, tag: "NEW" },
+        { name: "Mac Studio M4 Ultra", rom: "96GB/1TB", normal: 69999000, promo: 69999000, tag: "NEW" },
 
         // --- APPLE WATCH ---
         { name: "Apple Watch SE 2", rom: "40mm", normal: 4999000, promo: 3299000 },
         { name: "Apple Watch SE 2", rom: "44mm", normal: 5499000, promo: 3799000 },
+        
         { name: "Apple Watch SE 3", rom: "40mm", normal: 4599000, promo: 4499000, tag: "NEW" },
         { name: "Apple Watch SE 3", rom: "44mm", normal: 5199000, promo: 5099000, tag: "NEW" },
 
         { name: "Apple Watch S10", rom: "42mm", normal: 7299000, promo: 5599000 },
         { name: "Apple Watch S10", rom: "46mm", normal: 7899000, promo: 6099000 },
+
         { name: "Apple Watch S11", rom: "42mm", normal: 7299000, promo: 6149000, tag: "NEW" },
         { name: "Apple Watch S11", rom: "46mm", normal: 7899000, promo: 6749000, tag: "NEW" },
 
         { name: "Apple Watch Ultra 2", rom: "49mm", normal: 15999000, promo: 12499000 },
         { name: "Apple Watch Ultra 2", rom: "Titanium Milanese", normal: 17999000, promo: 14499000 },
+        
         { name: "Apple Watch Ultra 3", rom: "49mm", normal: 14999000, promo: 14999000, tag: "NEW" },
-        { name: "Apple Watch Ultra 3", rom: "Titanium Loop", normal: 17499000, promo: 17499000, tag: "NEW" },
+        { name: "Apple Watch Ultra 3", rom: "Titanium Milanese", normal: 17499000, promo: 17499000, tag: "NEW" },
 
-        // --- IPAD ---
-        { name: "iPad Gen 10", rom: "WiFi 64GB", normal: 8449000, promo: 4499000, tag: "HOT" },
-        { name: "iPad Gen 10", rom: "WiFi 256GB", normal: 11449000, promo: 6499000 },
-        { name: "iPad Gen 11", rom: "WiFi 128GB", normal: 6999000, promo: 6299000, tag: "NEW" },
-        { name: "iPad Gen 11", rom: "WiFi 256GB", normal: 9499000, promo: 8499000, tag: "NEW" },
-        { name: "iPad Gen 11", rom: "WiFi 512GB", normal: 13499000, promo: 12499000, tag: "NEW" },
+        // --- IPAD AIR ---
+        { name: "iPad Air 11 (M3)", rom: "WiFi 128GB", normal: 11999000, promo: 9499000 },
+        { name: "iPad Air 11 (M3)", rom: "WiFi 256GB", normal: 13999000, promo: 12199000 },
+        { name: "iPad Air 11 (M3)", rom: "WiFi 512GB", normal: 17999000, promo: 16199000 },
+        { name: "iPad Air 11 (M3)", rom: "WiFi 1TB", normal: 22499000, promo: 20699000 },
+
+        { name: "iPad Air 11 M3", rom: "Cell 128GB", normal: 14999000, promo: 13199000, tag: "NEW" },
+        { name: "iPad Air 11 M3", rom: "Cell 256GB", normal: 16999000, promo: 15199000, tag: "NEW" },
+        { name: "iPad Air 11 M3", rom: "Cell 512GB", normal: 20999000, promo: 19199000, tag: "NEW" },
+        { name: "iPad Air 11 M3", rom: "Cell 1TB", normal: 25499000, promo: 23699000, tag: "NEW" },
+
+        { name: "iPad Air 13 (M3)", rom: "WiFi 128GB", normal: 15499000, promo: 13699000 },
+        { name: "iPad Air 13 (M3)", rom: "WiFi 256GB", normal: 17999000, promo: 16499000 },
+        { name: "iPad Air 13 (M3)", rom: "WiFi 512GB", normal: 21999000, promo: 20499000 },
+        { name: "iPad Air 13 (M3)", rom: "WiFi 1TB", normal: 25999000, promo: 24499000 },
+
+        { name: "iPad Air 13 M3", rom: "Cell 128GB", normal: 19499000, promo: 17999000, tag: "NEW" },
+        { name: "iPad Air 13 M3", rom: "Cell 256GB", normal: 21499000, promo: 19999000, tag: "NEW" },
+        { name: "iPad Air 13 M3", rom: "Cell 512GB", normal: 25499000, promo: 23999000, tag: "NEW" },
+        { name: "iPad Air 13 M3", rom: "Cell 1TB", normal: 29499000, promo: 27999000, tag: "NEW" },
+
+        // --- IPAD BASIC & MINI ---
+        { name: "iPad 9th Gen", rom: "WiFi 64GB", normal: 8449000, promo: 4499000 },
+        { name: "iPad 9th Gen", rom: "WiFi 256GB", normal: 11449000, promo: 6499000 },
+        
+        { name: "iPad 10th Gen", rom: "Cell 64GB", normal: 11449000, promo: 6499000 },
+        { name: "iPad 10th Gen", rom: "Cell 256GB", normal: 14449000, promo: 9499000 },
+        { name: "iPad 10th Gen", rom: "WiFi 128GB", normal: 6999000, promo: 6299000 },
+        { name: "iPad 10th Gen", rom: "WiFi 256GB", normal: 9499000, promo: 8499000 },
+
+        { name: "iPad 11th Gen", rom: "WiFi 512GB", normal: 13499000, promo: 12499000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 128GB", normal: 11499000, promo: 9499000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 256GB", normal: 13499000, promo: 11499000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 512GB", normal: 17499000, promo: 15499000, tag: "NEW" },
 
         { name: "iPad Mini 7", rom: "WiFi 128GB", normal: 9899000, promo: 9399000, tag: "NEW" },
         { name: "iPad Mini 7", rom: "WiFi 256GB", normal: 11899000, promo: 11349000, tag: "NEW" },
         { name: "iPad Mini 7", rom: "WiFi 512GB", normal: 15899000, promo: 15349000, tag: "NEW" },
+        { name: "iPad Mini 7", rom: "Cell 128GB", normal: 12799000, promo: 12249000, tag: "NEW" },
+        { name: "iPad Mini 7", rom: "Cell 256GB", normal: 14799000, promo: 14249000, tag: "NEW" },
+        { name: "iPad Mini 7", rom: "Cell 512GB", normal: 18799000, promo: 18249000, tag: "NEW" },
 
-        { name: "iPad Air 11 (M2)", rom: "WiFi 128GB", normal: 11999000, promo: 9499000 },
-        { name: "iPad Air 11 (M2)", rom: "WiFi 256GB", normal: 13999000, promo: 12199000 },
-        { name: "iPad Air 13 (M2)", rom: "WiFi 128GB", normal: 15499000, promo: 13699000 },
+        // --- IPAD PRO ---
+        { name: "iPad Pro 11 M4", rom: "WiFi 256GB", normal: 20999000, promo: 18499000 },
+        { name: "iPad Pro 11 M4", rom: "WiFi 512GB", normal: 25499000, promo: 22499000 },
+        { name: "iPad Pro 11 M4", rom: "WiFi 1TB", normal: 33499000, promo: 30499000 },
+        { name: "iPad Pro 11 M4", rom: "WiFi 2TB", normal: 41499000, promo: 38499000 },
+        { name: "iPad Pro 11 M4", rom: "Cell 256GB", normal: 25499000, promo: 22499000 },
+        { name: "iPad Pro 11 M4", rom: "Cell 512GB", normal: 29499000, promo: 26499000 },
         
-        { name: "iPad Pro 11 (M4)", rom: "WiFi 256GB", normal: 20999000, promo: 18499000 },
-        { name: "iPad Pro 11 (M4)", rom: "WiFi 512GB", normal: 25499000, promo: 22499000 },
-        { name: "iPad Pro 11 (M4)", rom: "WiFi 1TB", normal: 33499000, promo: 30499000 },
-        
-        { name: "iPad Pro 13 (M4)", rom: "WiFi 256GB", normal: 26999000, promo: 23499000 },
-        { name: "iPad Pro 13 (M4)", rom: "WiFi 512GB", normal: 31499000, promo: 27999000 },
-        { name: "iPad Pro 13 (M4)", rom: "WiFi 1TB", normal: 40499000, promo: 36999000 },
+        { name: "iPad Pro 11 M4 (NT)", rom: "WiFi 1TB", normal: 35499000, promo: 32749000 },
+        { name: "iPad Pro 11 M4 (NT)", rom: "WiFi 2TB", normal: 43499000, promo: 40749000 },
+        { name: "iPad Pro 11 M4 (NT)", rom: "Cell 1TB", normal: 39499000, promo: 36499000 },
+        { name: "iPad Pro 11 M4 (NT)", rom: "Cell 2TB", normal: 47499000, promo: 44499000 },
+
+        { name: "iPad Pro 11 6th", rom: "Cell 1TB", normal: 37499000, promo: 34499000, tag: "NEW" },
+        { name: "iPad Pro 11 6th", rom: "Cell 2TB", normal: 45499000, promo: 42499000, tag: "NEW" },
+
+        { name: "iPad Pro 13 M4", rom: "WiFi 256GB", normal: 26999000, promo: 23499000 },
+        { name: "iPad Pro 13 M4", rom: "WiFi 512GB", normal: 31499000, promo: 27999000 },
+        { name: "iPad Pro 13 M4", rom: "WiFi 1TB", normal: 40499000, promo: 36999000 },
+        { name: "iPad Pro 13 M4", rom: "WiFi 2TB", normal: 48499000, promo: 44999000 },
+        { name: "iPad Pro 13 M4", rom: "Cell 256GB", normal: 31999000, promo: 28499000 },
+        { name: "iPad Pro 13 M4", rom: "Cell 512GB", normal: 35999000, promo: 32499000 },
+        { name: "iPad Pro 13 M4", rom: "Cell 1TB", normal: 43999000, promo: 40499000 },
+        { name: "iPad Pro 13 M4", rom: "Cell 2TB", normal: 51999000, promo: 48499000 },
+
+        { name: "iPad Pro 13 M4 (NT)", rom: "WiFi 1TB", normal: 41999000, promo: 37999000 },
+        { name: "iPad Pro 13 M4 (NT)", rom: "WiFi 2TB", normal: 49999000, promo: 45999000 },
+        { name: "iPad Pro 13 M4 (NT)", rom: "Cell 1TB", normal: 46499000, promo: 42999000 },
+        { name: "iPad Pro 13 M4 (NT)", rom: "Cell 2TB", normal: 54499000, promo: 50999000 },
 
         // --- IPHONE ---
-        { name: "iPhone 13", rom: "128GB", normal: 12499000, promo: 8249000, tag: "HOT" },
+        { name: "iPhone 13", rom: "128GB", normal: 12499000, promo: 8249000 },
 
         { name: "iPhone 14", rom: "128GB", normal: 14499000, promo: 9749000 },
         { name: "iPhone 14", rom: "256GB", normal: 18299000, promo: 11499000 },
@@ -368,6 +377,7 @@
         { name: "iPhone 15", rom: "128GB", normal: 16999000, promo: 11249000 },
         { name: "iPhone 15", rom: "256GB", normal: 19999000, promo: 13749000 },
         { name: "iPhone 15", rom: "512GB", normal: 23999000, promo: 16999000 },
+
         { name: "iPhone 15 Plus", rom: "128GB", normal: 18999000, promo: 13499000 },
         { name: "iPhone 15 Plus", rom: "256GB", normal: 21999000, promo: 15999000 },
         { name: "iPhone 15 Plus", rom: "512GB", normal: 25999000, promo: 18999000 },
@@ -379,6 +389,7 @@
         { name: "iPhone 16", rom: "128GB", normal: 14999000, promo: 14999000 },
         { name: "iPhone 16", rom: "256GB", normal: 17499000, promo: 15999000 },
         { name: "iPhone 16", rom: "512GB", normal: 21999000, promo: 19999000 },
+
         { name: "iPhone 16 Plus", rom: "128GB", normal: 17249000, promo: 15999000 },
         { name: "iPhone 16 Plus", rom: "256GB", normal: 19749000, promo: 18499000 },
         { name: "iPhone 16 Plus", rom: "512GB", normal: 23999000, promo: 20999000 },
@@ -406,7 +417,7 @@
         { name: "iPhone 17 Pro Max", rom: "256GB", normal: 25749000, promo: 25749000, tag: "NEW" },
         { name: "iPhone 17 Pro Max", rom: "512GB", normal: 30249000, promo: 30249000, tag: "NEW" },
         { name: "iPhone 17 Pro Max", rom: "1TB", normal: 34999000, promo: 34999000, tag: "NEW" },
-        { name: "iPhone 17 Pro Max", rom: "2TB", normal: 43999000, promo: 43999000, tag: "NEW" },
+        { name: "iPhone 17 Pro Max", rom: "2TB", normal: 43999000, promo: 43999000, tag: "NEW" }
     ];
 
     // === DOM ELEMENTS ===
@@ -414,7 +425,6 @@
     const searchInput = document.getElementById('searchInput');
     const instructionState = document.getElementById('instructionState');
     const emptyState = document.getElementById('emptyState');
-    const tags = document.querySelectorAll('.tag');
 
     // === FORMAT RUPIAH ===
     const formatIDR = (num) => {
@@ -427,15 +437,10 @@
 
     // === RENDER FUNCTION ===
     function renderList(data) {
-        listContainer.innerHTML = '';
+        listContainer.innerHTML = ''; // Reset list
         
         data.forEach(item => {
-            let badge = '';
-            if (item.tag) {
-                const badgeClass = item.tag === 'HOT' ? 'badge-hot' : 'badge-new';
-                badge = `<span class="${badgeClass}">${item.tag}</span>`;
-            }
-            
+            const badge = item.tag ? `<span class="badge-new ${item.tag === 'NEW' ? 'badge-blue' : ''}">${item.tag}</span>` : '';
             const isDiscount = item.promo < item.normal;
             const normalPrice = isDiscount ? `<div class="price-normal">${formatIDR(item.normal)}</div>` : '';
 
@@ -455,15 +460,11 @@
         });
     }
 
-    // === LOGIC UTAMA ===
-    function performSearch(query) {
-        query = query.toLowerCase().trim();
+    // === LOGIC UTAMA (EVENT LISTENER) ===
+    searchInput.addEventListener('input', (e) => {
+        const query = e.target.value.toLowerCase().trim();
         
-        // Reset Tag Active State if custom typing
-        if(!window.isTagClick) {
-            tags.forEach(t => t.classList.remove('active'));
-        }
-
+        // KONDISI 1: Kolom Pencarian Kosong
         if (query.length === 0) {
             instructionState.classList.add('visible');
             listContainer.innerHTML = '';
@@ -471,14 +472,15 @@
             return;
         }
 
+        // KONDISI 2: Ada Input, Lakukan Filter
         instructionState.classList.remove('visible');
         
         const filtered = products.filter(item => 
             item.name.toLowerCase().includes(query) || 
-            item.rom.toLowerCase().includes(query) ||
-            (item.tag && item.tag.toLowerCase().includes(query))
+            item.rom.toLowerCase().includes(query)
         );
 
+        // KONDISI 3: Hasil Filter Kosong atau Ada
         if (filtered.length === 0) {
             listContainer.innerHTML = '';
             emptyState.classList.add('visible');
@@ -486,30 +488,7 @@
             emptyState.classList.remove('visible');
             renderList(filtered);
         }
-    }
-
-    // Event Listener Input
-    searchInput.addEventListener('input', (e) => {
-        window.isTagClick = false;
-        performSearch(e.target.value);
     });
-
-    // Helper untuk klik Tag
-    window.fillSearch = (keyword) => {
-        window.isTagClick = true;
-        searchInput.value = keyword;
-        
-        // Update visual tag active
-        tags.forEach(t => {
-            if(t.innerText.includes(keyword) || (keyword === 'Mac Mini' && t.innerText === 'Mac Mini')) {
-                t.classList.add('active');
-            } else {
-                t.classList.remove('active');
-            }
-        });
-
-        performSearch(keyword);
-    };
 
 </script>
 
