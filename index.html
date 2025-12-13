@@ -209,7 +209,7 @@
 <div class="container">
     <header>
         <h1>ePrice | Digimap Dumai</h1>
-        <p class="subtitle">Price List Update: 8 Desember 2025</p>
+        <p class="subtitle">Price List Update: 12 Desember 2025</p>
     </header>
 
     <div class="search-container">
@@ -232,7 +232,7 @@
 </div>
 
 <script>
-    // === DATABASE HARGA (SESUAI PDF 8 DESEMBER 2025) ===
+    // === DATABASE HARGA (SESUAI FILE XLS 12 DESEMBER 2025) ===
     const products = [
         // --- MACBOOK AIR ---
         { name: "Macbook Air 13 M1 (2020)", rom: "8/256GB", normal: 16699000, promo: 11299000 },
@@ -283,8 +283,8 @@
         { name: "Apple Watch SE 3", rom: "40mm", normal: 4599000, promo: 4499000, tag: "NEW" },
         { name: "Apple Watch SE 3", rom: "44mm", normal: 5199000, promo: 5099000, tag: "NEW" },
 
-        { name: "Apple Watch S10", rom: "42mm", normal: 7299000, promo: 5599000 },
-        { name: "Apple Watch S10", rom: "46mm", normal: 7899000, promo: 6099000 },
+        { name: "Apple Watch S10", rom: "42mm", normal: 7299000, promo: 5799000 },
+        { name: "Apple Watch S10", rom: "46mm", normal: 7899000, promo: 6299000 },
 
         { name: "Apple Watch S11", rom: "42mm", normal: 7299000, promo: 6149000, tag: "NEW" },
         { name: "Apple Watch S11", rom: "46mm", normal: 7899000, promo: 6749000, tag: "NEW" },
@@ -317,19 +317,17 @@
         { name: "iPad Air 13 M3", rom: "Cell 1TB", normal: 29499000, promo: 27999000, tag: "NEW" },
 
         // --- IPAD BASIC & MINI ---
-        { name: "iPad 9th Gen", rom: "WiFi 64GB", normal: 8449000, promo: 4499000 },
-        { name: "iPad 9th Gen", rom: "WiFi 256GB", normal: 11449000, promo: 6499000 },
-        
+        { name: "iPad 10th Gen", rom: "WiFi 64GB", normal: 8449000, promo: 4499000 },
+        { name: "iPad 10th Gen", rom: "WiFi 256GB", normal: 11449000, promo: 6499000 },
         { name: "iPad 10th Gen", rom: "Cell 64GB", normal: 11449000, promo: 6499000 },
         { name: "iPad 10th Gen", rom: "Cell 256GB", normal: 14449000, promo: 9499000 },
-        { name: "iPad 10th Gen", rom: "WiFi 128GB", normal: 6999000, promo: 6299000 },
-        { name: "iPad 10th Gen", rom: "WiFi 256GB", normal: 9499000, promo: 8499000 },
 
-        { name: "iPad 11th Gen", rom: "WiFi 128GB", normal: 6999000, promo: 6299000, tag: "NEW" },
-        { name: "iPad 11th Gen", rom: "WiFi 512GB", normal: 13499000, promo: 12499000, tag: "NEW" },
-        { name: "iPad 11th Gen", rom: "Cell 128GB", normal: 11499000, promo: 9499000, tag: "NEW" },
-        { name: "iPad 11th Gen", rom: "Cell 256GB", normal: 13499000, promo: 11499000, tag: "NEW" },
-        { name: "iPad 11th Gen", rom: "Cell 512GB", normal: 17499000, promo: 15499000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "WiFi 128GB", normal: 6999000, promo: 5999000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "WiFi 256GB", normal: 9499000, promo: 8399000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "WiFi 512GB", normal: 13499000, promo: 12399000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 128GB", normal: 11499000, promo: 9399000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 256GB", normal: 13499000, promo: 11399000, tag: "NEW" },
+        { name: "iPad 11th Gen", rom: "Cell 512GB", normal: 17499000, promo: 15399000, tag: "NEW" },
 
         { name: "iPad Mini 7", rom: "WiFi 128GB", normal: 9899000, promo: 9399000, tag: "NEW" },
         { name: "iPad Mini 7", rom: "WiFi 256GB", normal: 11899000, promo: 11349000, tag: "NEW" },
@@ -339,44 +337,44 @@
         { name: "iPad Mini 7", rom: "Cell 512GB", normal: 18799000, promo: 18249000, tag: "NEW" },
 
         // --- IPAD PRO ---
-        { name: "iPad Pro 11 M4", rom: "WiFi 256GB", normal: 20999000, promo: 18499000 },
-        { name: "iPad Pro 11 M4", rom: "WiFi 512GB", normal: 25499000, promo: 22499000 },
-        { name: "iPad Pro 11 M4", rom: "WiFi 1TB", normal: 33499000, promo: 30499000 },
-        { name: "iPad Pro 11 M4", rom: "WiFi 2TB", normal: 41499000, promo: 38499000 },
-        { name: "iPad Pro 11 M4", rom: "Cell 256GB", normal: 25499000, promo: 22499000 },
-        { name: "iPad Pro 11 M4", rom: "Cell 512GB", normal: 29499000, promo: 26499000 },
+        { name: "iPad Pro 11 6th", rom: "WiFi 256GB", normal: 20999000, promo: 18499000 },
+        { name: "iPad Pro 11 6th", rom: "WiFi 512GB", normal: 25499000, promo: 22499000 },
+        { name: "iPad Pro 11 6th", rom: "WiFi 1TB", normal: 33499000, promo: 30499000 },
+        { name: "iPad Pro 11 6th", rom: "WiFi 2TB", normal: 41499000, promo: 38499000 },
+        { name: "iPad Pro 11 6th", rom: "Cell 256GB", normal: 25499000, promo: 22499000 },
+        { name: "iPad Pro 11 6th", rom: "Cell 512GB", normal: 29499000, promo: 26499000 },
+        { name: "iPad Pro 11 6th", rom: "Cell 1TB", normal: 37499000, promo: 34499000 },
+        { name: "iPad Pro 11 6th", rom: "Cell 2TB", normal: 45499000, promo: 42499000 },
         
-        { name: "iPad Pro 11 M4 (NT)", rom: "WiFi 1TB", normal: 35499000, promo: 32749000 },
-        { name: "iPad Pro 11 M4 (NT)", rom: "WiFi 2TB", normal: 43499000, promo: 40749000 },
-        { name: "iPad Pro 11 M4 (NT)", rom: "Cell 1TB", normal: 39499000, promo: 36499000 },
-        { name: "iPad Pro 11 M4 (NT)", rom: "Cell 2TB", normal: 47499000, promo: 44499000 },
+        { name: "iPad Pro 11 6th (NT)", rom: "WiFi 1TB", normal: 35499000, promo: 32749000 },
+        { name: "iPad Pro 11 6th (NT)", rom: "WiFi 2TB", normal: 43499000, promo: 40749000 },
+        { name: "iPad Pro 11 6th (NT)", rom: "Cell 1TB", normal: 39499000, promo: 36499000 },
+        { name: "iPad Pro 11 6th (NT)", rom: "Cell 2TB", normal: 47499000, promo: 44499000 },
 
-        { name: "iPad Pro 11 6th", rom: "Cell 1TB", normal: 37499000, promo: 34499000, tag: "NEW" },
-        { name: "iPad Pro 11 6th", rom: "Cell 2TB", normal: 45499000, promo: 42499000, tag: "NEW" },
+        { name: "iPad Pro 13", rom: "WiFi 256GB", normal: 26999000, promo: 23499000 },
+        { name: "iPad Pro 13", rom: "WiFi 512GB", normal: 31499000, promo: 27999000 },
+        { name: "iPad Pro 13", rom: "WiFi 1TB", normal: 40499000, promo: 36999000 },
+        { name: "iPad Pro 13", rom: "WiFi 2TB", normal: 48499000, promo: 44999000 },
+        { name: "iPad Pro 13", rom: "Cell 256GB", normal: 31999000, promo: 28499000 },
+        { name: "iPad Pro 13", rom: "Cell 512GB", normal: 35999000, promo: 32499000 },
+        { name: "iPad Pro 13", rom: "Cell 1TB", normal: 43999000, promo: 40499000 },
+        { name: "iPad Pro 13", rom: "Cell 2TB", normal: 51999000, promo: 48499000 },
 
-        { name: "iPad Pro 13 M4", rom: "WiFi 256GB", normal: 26999000, promo: 23499000 },
-        { name: "iPad Pro 13 M4", rom: "WiFi 512GB", normal: 31499000, promo: 27999000 },
-        { name: "iPad Pro 13 M4", rom: "WiFi 1TB", normal: 40499000, promo: 36999000 },
-        { name: "iPad Pro 13 M4", rom: "WiFi 2TB", normal: 48499000, promo: 44999000 },
-        { name: "iPad Pro 13 M4", rom: "Cell 256GB", normal: 31999000, promo: 28499000 },
-        { name: "iPad Pro 13 M4", rom: "Cell 512GB", normal: 35999000, promo: 32499000 },
-        { name: "iPad Pro 13 M4", rom: "Cell 1TB", normal: 43999000, promo: 40499000 },
-        { name: "iPad Pro 13 M4", rom: "Cell 2TB", normal: 51999000, promo: 48499000 },
-
-        { name: "iPad Pro 13 M4 (NT)", rom: "WiFi 1TB", normal: 41999000, promo: 37999000 },
-        { name: "iPad Pro 13 M4 (NT)", rom: "WiFi 2TB", normal: 49999000, promo: 45999000 },
-        { name: "iPad Pro 13 M4 (NT)", rom: "Cell 1TB", normal: 46499000, promo: 42999000 },
-        { name: "iPad Pro 13 M4 (NT)", rom: "Cell 2TB", normal: 54499000, promo: 50999000 },
+        { name: "iPad Pro 13 (NT)", rom: "WiFi 1TB", normal: 41999000, promo: 37999000 },
+        { name: "iPad Pro 13 (NT)", rom: "WiFi 2TB", normal: 49999000, promo: 45999000 },
+        { name: "iPad Pro 13 (NT)", rom: "Cell 1TB", normal: 46499000, promo: 42999000 },
+        { name: "iPad Pro 13 (NT)", rom: "Cell 2TB", normal: 54499000, promo: 50999000 },
 
         // --- IPHONE ---
         { name: "iPhone 13", rom: "128GB", normal: 12499000, promo: 8249000 },
+        { name: "iPhone 13", rom: "256GB", normal: 14749000, promo: 11499000 },
 
         { name: "iPhone 14", rom: "128GB", normal: 14499000, promo: 9749000 },
         { name: "iPhone 14", rom: "256GB", normal: 18299000, promo: 11499000 },
         { name: "iPhone 14", rom: "512GB", normal: 21249000, promo: 15999000 },
 
-        { name: "iPhone 15", rom: "128GB", normal: 16999000, promo: 11249000 },
-        { name: "iPhone 15", rom: "256GB", normal: 19999000, promo: 13749000 },
+        { name: "iPhone 15", rom: "128GB", normal: 16999000, promo: 10999000 },
+        { name: "iPhone 15", rom: "256GB", normal: 19999000, promo: 13249000 },
         { name: "iPhone 15", rom: "512GB", normal: 23999000, promo: 16999000 },
 
         { name: "iPhone 15 Plus", rom: "128GB", normal: 18999000, promo: 13499000 },
@@ -387,22 +385,22 @@
         { name: "iPhone 16e", rom: "256GB", normal: 15249000, promo: 13499000, tag: "NEW" },
         { name: "iPhone 16e", rom: "512GB", normal: 19249000, promo: 17499000, tag: "NEW" },
 
-        { name: "iPhone 16", rom: "128GB", normal: 14999000, promo: 14999000 },
-        { name: "iPhone 16", rom: "256GB", normal: 17499000, promo: 15999000 },
-        { name: "iPhone 16", rom: "512GB", normal: 21999000, promo: 19999000 },
+        { name: "iPhone 16", rom: "128GB", normal: 14999000, promo: 14999000, tag: "NEW" },
+        { name: "iPhone 16", rom: "256GB", normal: 17499000, promo: 15999000, tag: "NEW" },
+        { name: "iPhone 16", rom: "512GB", normal: 21999000, promo: 19999000, tag: "NEW" },
 
-        { name: "iPhone 16 Plus", rom: "128GB", normal: 17249000, promo: 15999000 },
-        { name: "iPhone 16 Plus", rom: "256GB", normal: 19749000, promo: 18499000 },
-        { name: "iPhone 16 Plus", rom: "512GB", normal: 23999000, promo: 20999000 },
+        { name: "iPhone 16 Plus", rom: "128GB", normal: 17249000, promo: 15999000, tag: "NEW" },
+        { name: "iPhone 16 Plus", rom: "256GB", normal: 19749000, promo: 18499000, tag: "NEW" },
+        { name: "iPhone 16 Plus", rom: "512GB", normal: 23999000, promo: 20999000, tag: "NEW" },
 
-        { name: "iPhone 16 Pro", rom: "128GB", normal: 18749000, promo: 17499000 },
-        { name: "iPhone 16 Pro", rom: "256GB", normal: 21749000, promo: 19999000 },
-        { name: "iPhone 16 Pro", rom: "512GB", normal: 26249000, promo: 23499000 },
-        { name: "iPhone 16 Pro", rom: "1TB", normal: 30749000, promo: 27999000 },
+        { name: "iPhone 16 Pro", rom: "128GB", normal: 18749000, promo: 17499000, tag: "NEW" },
+        { name: "iPhone 16 Pro", rom: "256GB", normal: 21749000, promo: 19999000, tag: "NEW" },
+        { name: "iPhone 16 Pro", rom: "512GB", normal: 26249000, promo: 23499000, tag: "NEW" },
+        { name: "iPhone 16 Pro", rom: "1TB", normal: 30749000, promo: 27999000, tag: "NEW" },
 
-        { name: "iPhone 16 Pro Max", rom: "256GB", normal: 22749000, promo: 21499000 },
-        { name: "iPhone 16 Pro Max", rom: "512GB", normal: 28249000, promo: 25499000 },
-        { name: "iPhone 16 Pro Max", rom: "1TB", normal: 33249000, promo: 29499000 },
+        { name: "iPhone 16 Pro Max", rom: "256GB", normal: 22749000, promo: 21499000, tag: "NEW" },
+        { name: "iPhone 16 Pro Max", rom: "512GB", normal: 28249000, promo: 25499000, tag: "NEW" },
+        { name: "iPhone 16 Pro Max", rom: "1TB", normal: 33249000, promo: 29499000, tag: "NEW" },
 
         { name: "iPhone 17", rom: "256GB", normal: 17249000, promo: 17249000, tag: "NEW" },
         { name: "iPhone 17", rom: "512GB", normal: 21999000, promo: 21999000, tag: "NEW" },
